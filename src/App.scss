@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Lato&display=swap');
+
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+
+.App {
+  text-align: center;
+  height: 100vh;
+
+}
+
+.app-header {
+  min-height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #8c00ff9b;
+  margin-bottom: 2rem;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: .6rem;
+  text-shadow: 4px 4px 1px rgba(214, 79, 255, 0.5);
+
+}
+
+
