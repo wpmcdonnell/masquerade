@@ -65,7 +65,7 @@ const MetaMaskContext = createContext();
           })
           .send({
             // @ts-ignore
-            from: wallet.accounts,
+            from: wallet,
     
             gasPrice: Web3.utils.toHex(gasPrice),
           })

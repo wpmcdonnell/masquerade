@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage";
 import ConnectPage from "./components/ConnectPage/ConnectPage";
 import { MetaMaskContextProvider } from "./hooks/metaMaskContext";
+import CreateEventPage from "./components/CreateEventPage/CreateEventPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/connect" element={<ConnectPage />} />
+            <Route path="/create-event" element={<CreateEventPage />} />
           </Routes>
         </Router>
       </MetaMaskContextProvider>
