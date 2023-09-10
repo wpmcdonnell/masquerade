@@ -6,19 +6,28 @@ const MetaMaskContext = createContext();
 
   export const MetaMaskContextProvider = ({ children }) => {
     const [sdk, setSDK] = useState(null);
+    const [wallet, setWallet] = useState(null);
+    const [ethereum, setEthereum] = useState(null);
 
 
 
-    const connectMetaMask = async () => {
-        try {
-          const accounts = await sdk.ethereum.request({
-            method: "eth_requestAccounts",
-          });
-          console.log(accounts);
-        } catch (error) {
-          console.error(error);
-        }
-    };  
+
+        const connectMetaMask = useCallback(async () => {
+            const acc = await sdk
+              ?.connect()
+              .then((accounts) => {
+                setEthereum(sdk.getProvider());
+                console.log(accounts);
+                setWallet(accounts[0]);
+              })
+        
+              .catch((e) => {
+                console.log(e);
+              });
+        console.log("triggered connectMetaMask")
+       console.log(wallet)
+          }, [sdk]);
+
 
     const metaMaskInit = useCallback(async () => {
         const options = {
@@ -35,7 +44,7 @@ const MetaMaskContext = createContext();
       }, [setSDK]);
 
     return (
-        <MetaMaskContext.Provider value={{ connectMetaMask, metaMaskInit }}>
+        <MetaMaskContext.Provider value={{ connectMetaMask, metaMaskInit, sdk, wallet }}>
           {children}
         </MetaMaskContext.Provider>
       );
