@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const EnterButton = () => {
   return (
-    <Link>
+    <Link to={"/connect"}>
       <div className="button-container">
         {" "}
         <button className="enter-button"> ENTER </button>{" "}

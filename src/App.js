@@ -2,6 +2,8 @@ import "./App.scss";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import LandingPage from "./components/LandingPage/LandingPage";
+import ConnectPage from "./components/ConnectPage/ConnectPage";
+import { MetaMaskContextProvider } from "./hooks/metaMaskContext";
 
 function App() {
   return (
@@ -9,11 +11,14 @@ function App() {
       <header className="app-header">
         <h1>MASQUERADE</h1>
       </header>
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-        </Routes>
-      </Router>
+      <MetaMaskContextProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/connect" element={<ConnectPage />} />
+          </Routes>
+        </Router>
+      </MetaMaskContextProvider>
     </div>
   );
 }
